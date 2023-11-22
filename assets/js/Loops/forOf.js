@@ -42,14 +42,21 @@ for (let index = 0; index < numOfKrNames; ++index) {
 console.log ("");
 
 
-//for In
-console.log("typeof của key là: ");
-for (const key in KamenRiders) {
-    console.log(typeof key);
+//for of
+console.log("iterator của key là: ");
+for (const iterator of KamenRiders) {
+    console.log(iterator);
 }
 console.log("");
 
 
-for (const key in KamenRiders) {
-    console.log(KamenRiders[key]);
+console.log("typeof của key là: ");
+for (const iterator of KamenRiders) {
+    console.log(typeof iterator);
+}
+console.log("");
+
+//Một cách sử dụng forOf khác
+for (const value of KamenRiders[0].name) {
+    console.log(value);
 }

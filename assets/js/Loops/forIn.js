@@ -32,6 +32,7 @@ var KamenRiders = [
         cost: 0,
     }
 ]
+
 //In
 let numOfKrNames = KamenRiders.length;
 let count = 0;
@@ -43,6 +44,13 @@ console.log ("");
 
 
 //for In
+console.log("Giá trị của Key là: ");
+for (const key in KamenRiders) {
+    console.log(key);
+}
+console.log("");
+
+
 console.log("typeof của key là: ");
 for (const key in KamenRiders) {
     console.log(typeof key)
