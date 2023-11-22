@@ -42,14 +42,23 @@ for (let index = 0; index < numOfKrNames; ++index) {
 }
 console.log ("");
 
+console.log("Sử dụng vòng lặp for: ");
+let total = 0;
+let initial = 0;
 for (let index = 0; index < numOfKrNames; ++index) {
-    
+    total += KamenRiders[index].cost;
 }
+total += initial;
+console.log(total);
 console.log("");
 
 
+console.log("Sử dụng Reduce(): ");
 count=0;
 var totalKrCost = KamenRiders.reduce((total, object) => {
-    return total;
-}, typeof "ádasd")
+    console.log(count + ": " + total + " " + object.cost);
+    count++;
+    return total += object.cost;
+}, 0)
 console.log(totalKrCost);
+
