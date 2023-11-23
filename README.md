@@ -5,4 +5,4 @@ Nếu bị fatal: refusing to merge unrelated histories:
 
     #Hello There
 
-    
+    Giờ t tạo Confilt gì đó nè
