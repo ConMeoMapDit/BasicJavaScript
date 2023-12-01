@@ -27,7 +27,7 @@ console.log(typeof boxElements.classList.value);
 console.log("");
 
 
-//add
+//add()
 console.log("Sử dụng classList.add(\"red\") để thêm class tên red vào.");
 boxElements.classList.add("red");
 console.log("- Lưu ý: đã viết sẵn một class tên red trong file style.css để đổi màu chữ");
