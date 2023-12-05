@@ -6,44 +6,48 @@
 //remove()
 //toggle()
 
-var boxClassList = document.querySelector(".learn-class-list");
-console.log(boxClassList);
+//Length
+let ObjCllength = document.getElementById("class-list-length");
+let numOfClassList = document.getElementById("class-list-length").innerText;
 
-console.log(boxClassList.classList);
+numOfClassList = numOfClassList + " " + ObjCllength.classList.length;
+document.getElementById("class-list-length").innerText = numOfClassList;
+
+//Rút gọn code
+// document.getElementById("class-list-length").innerText = document.getElementById("class-list-length").innerText + " " + document.getElementById("class-list-length").classList.length;
 console.log("");
 
 
-//Length
-let ObjCllength = document.getElementById("class-list-length");
-let cll = document.getElementById("class-list-length").innerText;
-
-cll = cll + " " + ObjCllength.classList.length;
-document.getElementById("class-list-length").innerText = cll
 //value
-console.log("Sử dụng classList.value để biết tên các class trong element:");
-console.log(boxClassList.classList.value);
-console.log("- Lưu ý: classList.value trả về một chuỗi: ");
-console.log(typeof boxClassList.classList.value);
+document.getElementById("class-list-value").innerText = document.getElementById("class-list-value").innerText + " " + document.getElementById("class-list-value").classList.value;
 console.log("");
 
 
 //add()
-console.log("Object.classList.add() => Thêm một class vào element:");
-console.log("Sử dụng classList.add(\"red\") để thêm class tên red vào.");
-boxClassList.classList.add("red");
-console.log("- Lưu ý: đã viết sẵn một class tên red trong file style.css để đổi màu chữ");
-console.log("");
-
-console.log("Có thể thêm vào nhiều class trong cùng một câu lệnh bằng cách classList.add(\"red\", \"blue\")");
-boxClassList.classList.add("red", "blue");
+var addRed = document.querySelector("#class-list-add");
+addRed.classList.add("red");
+// document.getElementById("class-list-add").classList.add("red");
 console.log("");
 
 
 //contains()
-console.log("Object.classList.contains() => Kiểm tra xem một class có tồn tại hay không");
-console.log(boxClassList.classList.contains("box"));
-console.log(boxClassList.classList.contains("alo"));
+document.getElementById("class-list-contains").classList.add("red");
+console.log("Check contains: ");
+console.log(document.getElementById("class-list-contains").classList.contains("red"));
+console.log("");
 
 
 //remove()
-console.log("object");
+document.getElementById("class-list-remove").classList.remove("red");
+console.log("");
+
+
+//toggle()
+setInterval(() => {
+    document.getElementById("class-list-toggle").classList.toggle("red");
+    if (document.getElementById("class-list-toggle").classList.contains("red")) {
+        document.getElementById("class-list-toggle").innerText = "Thẻ span này đã thêm class red";
+    } else {
+        document.getElementById("class-list-toggle").innerText = "Thẻ span này chưa có class red";
+    }
+}, 1500);

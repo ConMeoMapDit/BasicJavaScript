@@ -17,8 +17,8 @@
     <div class="container">
         <h1 id="HeadTitle" >Basic Java Script</h1>
         <hr>
-        <p id="testInnerHTML">asdasd</p>
-        <p id="allKrName">Kamen rider </p>
+        <a href="./domEvents.html">Dom Events</a>
+        <p id="allKrName">Kamen rider</p>
         <div id=""></div>
 
         
@@ -41,20 +41,57 @@
         <a id="a-1">google.com</a>
         <a href="" id="a-2">Đây là a2 google.com</a>
         <span id="s-1">Test trên thẻ span</span>
-        
         <br>
 
         <div class="box box-box">
         </div>
         <span class="lb"></span>
-        
         <br>
+
+        <!-- Class List -->
         <h2>Class List in JavaScript</h2>
         <div id="DOM_ClassList" >
-            <p>Sử dụng Object.classList.length để biết số lượng class trong element:</p>
-            <span id="class-list-length" class="classList1 classList2"> - Số lượng class list trong thẻ span này là:</span>
+            <h3>Object.classList.length</h3>
+            <p>Sử dụng Object.classList.length để biết <strong>số lượng class</strong> trong element</p>
+            <span id="class-list-length" class="classList1 classList2"> - Đây là thẻ span, số lượng class trong thẻ span này là:</span>
+            <br><br>
+
+            <h3>Object.classList.value</h3>
+            <p>Sử dụng Object.classList.value để biết <strong>tên các class</strong> trong element</p>
+            <span id="class-list-value" class="classList1 classList2">- Đây là thẻ span, tên các class trong thẻ span này là: </span>
+            <br><br>
+
+
+            <h3>Object.classList.add()</h3>
+            <p>Sử dụng Object.classList.add() để <strong>thêm các class</strong> trong element</p>
+            <span>Sử dụng Object.classList.add("red") vào thẻ span ở dưới, lưu ý rằng đã viết sẵn các thuộc tính của class .red trong css</span>
             <br>
-            <span class="learn-class-list">Test Class List</span>
+            <span id="class-list-add" class="classList1 classList2">- Đây là thẻ span đã thêm class red</span>
+            <br>
+            <span>Có thể sử dụng Object.classList.add("red", "blue", ...) để thêm nhiều class.</span>
+            <br><br>
+
+            <h3>Object.classList.contains()</h3>
+            <p>Sử dụng Object.classList.contains() để <strong>kiểm tra có hoặc không có class</strong> trong element</p>
+            <span>Sử dụng Object.classList.contains("red") vào thẻ span ở dưới để kiểm tra xem có tồn tại class <span class="red">red</span> không</span>
+            <br>
+            <span id="class-list-contains" class="classList1 classList2">- Đây là thẻ span đã thêm class red, kiểm tra trong console</span>
+            <br><br>
+
+            <h3>Object.classList.remove()</h3>
+            <p>Sử dụng Object.classList.remove() để <strong>xóa các class</strong> trong element</p>
+            <span>Sử dụng Object.classList.remove("red") vào thẻ span ở dưới để xóa class <span class="red">red</span></span>
+            <br>
+            <span id="class-list-remove" class="classList1 classList2 red">- Đây là thẻ span đã thêm class red, kiểm tra trong console</span>
+            <br><br>
+
+            <h3>Object.classList.toggle()</h3>
+            <p>Sử dụng Object.classList.toggle() để <strong>thêm hoặc xóa các class</strong> trong element</p>
+            <p>Nếu bên trong element có class mà toggle() chỉ định, toggle() sẽ xóa nó. Ngược lại, nếu không có, toggle() sẽ thêm vào.</p>
+            <span>Sử dụng Object.classList.toggle("red") vào thẻ span ở dưới để thêm / xóa class <span class="red">red</span>. Ta kết hợp thêm hàm setInterval()</span>
+            <br>
+            <span id="class-list-toggle" class="classList1 classList2 red"></span>
+            <br><br>
         </div>
 
     </div>
