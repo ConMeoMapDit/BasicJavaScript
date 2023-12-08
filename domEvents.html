@@ -20,15 +20,23 @@
         <hr>
         <h2>Attributes Events</h2>
 
-        <h4 onclick="console.log(Math.random())">Hello World</h4>
+        <p id="show-events">Click vào dòng chữ này để nhìn thấy tất cả sự kiện có thể tương tác của thẻ p trong cửa sổ console</p>
         <br>
 
-        <h4 onclick="console.log(this)">Open console and click here, you will know what is this</h4>
+        <h4 onclick="console.log(Math.random())">Click vào dòng chữ này, event onlick() có thể đặt trong file HTML. <span style="color: red;">Lưu ý: Không khuyến khích code như vậy</span></h4>
         <br>
 
-        <h4 id="parents" onclick="">
-            <span>Thẻ span này là thẻ con của h4</span>
+        <h4 id="e-target"">Open console and click here, you will know what is this</h4>
+        <br>
+
+        <h4 id="uncle">
+            <span id="parent" onclick="console.log(Math.random())">
+                <span id="s-child">Thẻ span này là thẻ con của parent, thẻ cháu của uncle</span>
+            </span>
         </h4>
+        <span id="uncleFriend"></span>
+        <br>
+
         <br>
 
         <h5>h5 element 1</h5>
