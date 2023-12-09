@@ -43,3 +43,37 @@ for (let index = 0; index < lengthH5Elements; ++index) {
         console.log(e.target);
     });
 }
+console.log("");
+
+/* ------------------------------------- */
+/* ---------DOM EVENTS Buổi 2----------- */
+
+let inpText = document.getElementById("inpText");
+let i = 0;
+inpText.onchange = ((e) => {
+    console.log("Halo");
+});
+
+inpText.oninput = ((e) => {
+    console.log(e.target.value);
+    i++;
+});
+console.log("");
+
+
+//Checkbox
+console.log("Đây là check box");
+let inpCheckBox = document.querySelector('input[ type="checkbox" ]');
+console.log(inpCheckBox);
+inpCheckBox.onchange = function(e) {
+    console.log(e.target.checked);
+}
+console.log("");
+
+
+console.log("đây là select Option");
+let _3options = document.querySelector("select");
+// console.log(_3options);
+_3options.onchange = ((e) => {
+    console.log(e.target.value);
+});
