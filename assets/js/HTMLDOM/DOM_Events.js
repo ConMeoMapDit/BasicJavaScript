@@ -32,3 +32,4 @@ document.getElementById("uncle").onclick = ((events) => {
         document.getElementById("uncleFriend").innerText = "";
     },5000);
 });
+
