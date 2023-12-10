@@ -71,9 +71,13 @@ inpCheckBox.onchange = function(e) {
 console.log("");
 
 
-console.log("đây là select Option");
+//Select Options
+console.log("đây là Select Option");
 let _3options = document.querySelector("select");
-// console.log(_3options);
 _3options.onchange = ((e) => {
     console.log(e.target.value);
+    console.log(e.target.selectedOptions[0].text);
+    console.log(_3options.selectedIndex);
+    console.log(_3options.options[_3options.selectedIndex].text);
 });
+console.log("");
