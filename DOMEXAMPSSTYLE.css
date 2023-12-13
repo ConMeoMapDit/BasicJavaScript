@@ -6,7 +6,7 @@
     margin: 0px 20px;
 }
 
-.form {
+.form, .formOrO {
     width: 500px;
     height: 300px;
     box-sizing: border-box;
@@ -45,7 +45,7 @@ button {
     border: 1px black solid;
 }
 
-.form {
+.formOrO {
     position: relative;
 }
 
