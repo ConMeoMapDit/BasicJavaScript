@@ -40,7 +40,7 @@ console.log("");
 console.log("Đây là vòng lặp forEach: ");
 KamenRider.forEach((key, index)=> {
     console.log(index, key);
-})
+});
 console.log("");
 
 document.getElementById("allKrName").innerHTML = "Hell yeah";
