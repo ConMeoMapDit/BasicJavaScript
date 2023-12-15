@@ -12,42 +12,40 @@ function Validator(object) {
 
 
     if (formElement) { //Nếu formElement có tồn tại, thực hiện đoạn mã phía dưới
-        object.rules.forEach( (rule) => {
-            inputElement = formElement.querySelector(rule.selector);
 
-            // console.log(inputElement.value);
+        object.rules.forEach( (rule) => {
+            var inputElement = formElement.querySelector(rule.selector);
+            // console.log(inputElement);
+
+            //Để truy suất đến value nằm trong thẻ input: inputElement.value
+
+            
+
             if (inputElement) {
-                inputElement.blur = () => {
+                inputElement.onblur = () => {
+                    // rule.test(inputElement.value)
+                    // console.log( rule.test(inputElement.value) );
+                    let formMessage = rule.test(inputElement.value);
+                    console.log(formMessage);
                     
                 }
             }
         });
+
     }
 }
 
 
-//
-// Validator.isRequid = (selector) => {
-//     //return 1 object
-//     return {
-//         string: "return đối tượng Tên",
-//         selector: selector,
-//         test: function (params) {
-            
-//         }
-//     };
-// }
-
-
-
 Validator.isRequid = (selector) => {
+    //return 1 object
     return {
+        string: "return đối tượng Tên",
         selector: selector,
-        test: function (params) {
-            
+        test: function (value) {
+            return value ? value.trim()  : "Nhập lại trường Tên";
         }
-    }
-};
+    };
+}
 
 
 Validator.isEmail = (selector) => {
@@ -55,8 +53,8 @@ Validator.isEmail = (selector) => {
     return {
         string: "return đối tượng Email",
         selector: selector,
-        test: function (params) {
-            
+        test: function (value) {
+            return value ? value.trim() : "Nhập lại trường email"
         }
     }
 };
