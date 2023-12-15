@@ -13,7 +13,14 @@ function Validator(object) {
 
     if (formElement) { //Nếu formElement có tồn tại, thực hiện đoạn mã phía dưới
         object.rules.forEach( (rule) => {
-            console.log(rule.selector);
+            inputElement = formElement.querySelector(rule.selector);
+
+            // console.log(inputElement.value);
+            if (inputElement) {
+                inputElement.blur = () => {
+                    
+                }
+            }
         });
     }
 }
@@ -34,7 +41,6 @@ function Validator(object) {
 
 
 Validator.isRequid = (selector) => {
-
     return {
         selector: selector,
         test: function (params) {
