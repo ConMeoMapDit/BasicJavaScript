@@ -19,7 +19,7 @@ function Validator(object) {
 
             //Để truy suất đến value nằm trong thẻ input: inputElement.value
 
-            
+            var parentInputElement = inputElement.par
 
             if (inputElement) {
                 inputElement.onblur = () => {
