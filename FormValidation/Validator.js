@@ -1,6 +1,4 @@
 
-
-
 function Validator(object) {
     // var formElement = document.querySelector("#form-1");
     var formElement = document.querySelector(object.idForm);
