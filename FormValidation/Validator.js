@@ -2,7 +2,7 @@
 function Validator(object) {
     // var formElement = document.querySelector("#form-1");
     var formElement = document.querySelector(object.idForm);
-    // console.log(object.idForm);
+    // console.log(object.idForm); => Kết quả trả về là: #form-1
 
     // console.log(formElement.querySelector(".form-group #fullName").placeholder);
     // Đặt vấn đề: nếu có một trang web khác không sử dụng class="form-group" và id="fullName" thì sao ? Hoặc trong quá trình bảo trì, họ đổi tên các class và id trong file html ???
