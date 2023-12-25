@@ -14,26 +14,27 @@ function Validator(object) {
         object.rules.forEach( (rule) => {
             var inputElement = formElement.querySelector(rule.selector);
             // console.log(inputElement);
-
             //Để truy suất đến value nằm trong Element input: inputElement.value
-
-            
 
             var parentInputElement = inputElement.parentElement;
             // console.log(parentInputElement);
+
+            function validate(formMessage) {
+                if (formMessage != null) {
+                    parentInputElement.querySelector(".form-message").innerText = formMessage;
+                    inputElement.classList.add("invalid");
+                } else {
+                    parentInputElement.querySelector(".form-message").innerText = formMessage;
+                    inputElement.classList.remove("invalid");
+                }
+            }
 
             if (inputElement) {
                 inputElement.onblur = () => {
                     // rule.test(inputElement.value)
                     // console.log( rule.test(inputElement.value) );
                     let formMessage = rule.test(inputElement.value);
-                    if (formMessage != null) {
-                        parentInputElement.querySelector(".form-message").innerText = formMessage;
-                        inputElement.classList.add("invalid");
-                    } else {
-                        parentInputElement.querySelector(".form-message").innerText = formMessage;
-                        inputElement.classList.remove("invalid");
-                    }
+                    validate(formMessage);
                 }
             }
         });
