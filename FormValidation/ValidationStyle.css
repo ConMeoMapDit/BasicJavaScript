@@ -17,6 +17,8 @@ body {
     background-size: cover;
 }
 
+
+
 .container {
     width: 80%;
     height: 100vh;
@@ -94,6 +96,13 @@ h3, p {
     outline-width: medium;
 }
 
+.form-group .invalid {
+    /* background-color: #7c0000; */
+    border: none;
+    outline-color: rgb(233, 7, 150);
+    outline-width: medium;
+}
+
 .form-group span {
     color: red;
     font-size: 0.8rem;
@@ -122,3 +131,4 @@ h3, p {
         padding:50px 20px;
     }
 }
+

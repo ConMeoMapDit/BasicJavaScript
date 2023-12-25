@@ -15,17 +15,25 @@ function Validator(object) {
             var inputElement = formElement.querySelector(rule.selector);
             // console.log(inputElement);
 
-            //Để truy suất đến value nằm trong thẻ input: inputElement.value
+            //Để truy suất đến value nằm trong Element input: inputElement.value
 
-            var parentInputElement = inputElement.par
+            
+
+            var parentInputElement = inputElement.parentElement;
+            // console.log(parentInputElement);
 
             if (inputElement) {
                 inputElement.onblur = () => {
                     // rule.test(inputElement.value)
                     // console.log( rule.test(inputElement.value) );
                     let formMessage = rule.test(inputElement.value);
-                    console.log(formMessage);
-                    
+                    if (formMessage != null) {
+                        parentInputElement.querySelector(".form-message").innerText = formMessage;
+                        inputElement.classList.add("invalid");
+                    } else {
+                        parentInputElement.querySelector(".form-message").innerText = formMessage;
+                        inputElement.classList.remove("invalid");
+                    }
                 }
             }
         });
@@ -39,7 +47,7 @@ Validator.isRequid = (selector) => {
         string: "return đối tượng Tên",
         selector: selector,
         test: function (value) {
-            return value ? value.trim()  : "Nhập lại trường Tên";
+            return value.trim() ? null  : "Nhập lại trường Tên";
         }
     };
 }
@@ -51,7 +59,7 @@ Validator.isEmail = (selector) => {
         string: "return đối tượng Email",
         selector: selector,
         test: function (value) {
-            return value ? value.trim() : "Nhập lại trường email"
+            return value.trim() ? null : "Nhập lại trường email"
         }
     }
 };
