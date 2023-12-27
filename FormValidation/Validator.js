@@ -1,40 +1,49 @@
 
 function Validator(object) {
-    // var formElement = document.querySelector("#form-1");
-    var formElement = document.querySelector(object.idForm);
-    // console.log(object.idForm); => Kết quả trả về là: #form-1
+
 
     // console.log(formElement.querySelector(".form-group #fullName").placeholder);
     // Đặt vấn đề: nếu có một trang web khác không sử dụng class="form-group" và id="fullName" thì sao ? Hoặc trong quá trình bảo trì, họ đổi tên các class và id trong file html ???
     // console.log(formElement.querySelector(".? #?").placeholder);
 
+    function validate(rule, inputElement, messageElement) {
+        // rule.test(inputElement.value)
+        // console.log( rule.test(inputElement.value) );
+        let formMessage = rule.checkInput(inputElement.value);
+        
+        if (formMessage != null) {
+            messageElement.innerText = formMessage;
+            inputElement.classList.add("invalid");
+        } else {
+            messageElement.innerText = formMessage;
+            inputElement.classList.remove("invalid");
+        }
+    }
 
+    // var formElement = document.querySelector("#form-1");
+    var formElement = document.querySelector(object.idForm); // Lấy element của form cần validate
+    // console.log(object.idForm); => Kết quả trả về là: #form-1
     if (formElement) { //Nếu formElement có tồn tại, thực hiện đoạn mã phía dưới
+
 
         object.rules.forEach( (rule) => {
             var inputElement = formElement.querySelector(rule.selector);
+            var messageElement = inputElement.parentElement.querySelector(object.messageForm);
+
+            console.log(messageElement);
             // console.log(inputElement);
-            //Để truy suất đến value nằm trong Element input: inputElement.value
 
-            var parentInputElement = inputElement.parentElement;
-            // console.log(parentInputElement);
-
-            function validate(formMessage) {
-                if (formMessage != null) {
-                    parentInputElement.querySelector(".form-message").innerText = formMessage;
-                    inputElement.classList.add("invalid");
-                } else {
-                    parentInputElement.querySelector(".form-message").innerText = formMessage;
-                    inputElement.classList.remove("invalid");
-                }
-            }
 
             if (inputElement) {
+                // Khi blur khỏi element
                 inputElement.onblur = () => {
-                    // rule.test(inputElement.value)
-                    // console.log( rule.test(inputElement.value) );
-                    let formMessage = rule.test(inputElement.value);
-                    validate(formMessage);
+                    validate(rule, inputElement, messageElement);
+                }
+
+                // Khi vẫn đang nhập element
+                inputElement.oninput = () => {
+                    inputElement.classList.remove("invalid");
+                    messageElement.innerText = null;
                 }
             }
         });
@@ -47,8 +56,28 @@ Validator.isRequid = (selector) => {
     return {
         string: "return đối tượng Tên",
         selector: selector,
-        test: function (value) {
-            return value.trim() ? null  : "Nhập lại trường Tên";
+        checkInput: function (value) {
+            return value.trim() ? null  : "Nhập lại Họ và Tên";
+        }
+    };
+}
+
+Validator.isPassword = (selector) => {
+    //return 1 object
+    return {
+        string: "return đối tượng Password",
+        selector: selector,
+        checkInput: function (value) {
+            /* 
+                /^
+                    (?=.*\d)          // should contain at least one digit
+                    (?=.*[a-z])       // should contain at least one lower case
+                    (?=.*[A-Z])       // should contain at least one upper case
+                    [a-zA-Z0-9]{8,}   // should contain at least 8 from the mentioned characters
+                $/
+            */
+            let regexPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+            return regexPassword.test(value) ? null  : "Nhập lại Password";
         }
     };
 }
@@ -59,8 +88,9 @@ Validator.isEmail = (selector) => {
     return {
         string: "return đối tượng Email",
         selector: selector,
-        test: function (value) {
-            return value.trim() ? null : "Nhập lại trường email"
+        checkInput: function (value) {
+            const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            return emailRegex.test(value) ? null : "Nhập lại Email";
         }
     }
 };

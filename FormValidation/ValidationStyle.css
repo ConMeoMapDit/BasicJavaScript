@@ -96,14 +96,10 @@ h3, p {
     outline-width: medium;
 }
 
-.form-group .invalid {
-    /* background-color: #7c0000; */
-    border: none;
-    outline-color: rgb(233, 7, 150);
-    outline-width: medium;
-}
+
 
 .form-group span {
+    padding: 1.5px;
     color: red;
     font-size: 0.8rem;
 }
@@ -132,3 +128,9 @@ h3, p {
     }
 }
 
+.form-group .invalid {
+    /* background-color: #7c0000; */
+    border: none;
+    outline-color: #de1738;
+    outline-width: medium;
+}

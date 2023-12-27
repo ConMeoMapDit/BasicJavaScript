@@ -71,12 +71,15 @@
                 //thuộc tính idForm
                 idForm: "#form-1",
 
+                //thuộc tính Validate
+                messageForm: ".form-message",
+
                 //Thuộc tính rules
                 rules: [
                     // string = "haha",
                     //Gọi đến phương thức isRequid()
                     Validator.isRequid("#fullName"),
-
+                    Validator.isPassword("#password"),
                     //Gọi đến phương thức isEmail()
                     Validator.isEmail("#email"),
                 ]
