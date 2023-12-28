@@ -51,7 +51,7 @@ function Validator(object) {
 }
 
 
-Validator.isRequid = (selector) => {
+Validator.isRequid = (selector) => { 
     //return 1 object
     return {
         string: "return đối tượng Tên",
@@ -67,7 +67,7 @@ Validator.isPassword = (selector) => {
     return {
         string: "return đối tượng Password",
         selector: selector,
-        checkInput: function (value) {
+        checkInput: function (value, length) {
             /* 
                 /^
                     (?=.*\d)          // should contain at least one digit
@@ -76,8 +76,10 @@ Validator.isPassword = (selector) => {
                     [a-zA-Z0-9]{8,}   // should contain at least 8 from the mentioned characters
                 $/
             */
-            let regexPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
-            return regexPassword.test(value) ? null  : "Nhập lại Password";
+            let regexPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{${length},}$/;
+            value = value.trim();
+            // if (value < length)
+            return regexPassword.test(value) ? null : `Mật khẩu phải có ít ${length} ký tự, trong đó gồm một chữ in hoa, một chữ thường và một sô`;
         }
     };
 }
