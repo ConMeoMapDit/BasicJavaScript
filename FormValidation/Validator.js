@@ -76,7 +76,7 @@ Validator.isPassword = (selector) => {
                     [a-zA-Z0-9]{8,}   // should contain at least 8 from the mentioned characters
                 $/
             */
-            let regexPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{${length},}$/;
+            let regexPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
             value = value.trim();
             // if (value < length)
             return regexPassword.test(value) ? null : `Mật khẩu phải có ít ${length} ký tự, trong đó gồm một chữ in hoa, một chữ thường và một sô`;
